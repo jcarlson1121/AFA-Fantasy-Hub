@@ -1,0 +1,26 @@
+AFA FANTASY LEAGUE HUB — WEBSITE STARTER
+
+This package publishes your existing v3 Fantasy Hub as a standalone website.
+It has a convenient Dynasty Tracker link in its header.
+
+IMPORTANT: This version uses the original embedded v3 dataset.
+It does not pull new games or players from Dynasty Tracker automatically.
+No source Dynasty Tracker records are changed.
+
+HOW TO PUBLISH:
+1. Unzip AFA_Fantasy_Website_Starter.zip.
+2. Go to https://app.netlify.com/drop/ and sign in.
+3. Drag the extracted AFA_Fantasy_Website folder onto the drop zone.
+4. Netlify will publish a public .netlify.app URL.
+5. Test on desktop and mobile.
+
+HOW TO CONNECT AUTOMATIC UPDATES (separate build step):
+1. Set up a scheduled build job that fetches the public read-only
+   https://www.dynastytracker.app/api/view-dynasty?code=w5g1f7e9
+2. Validate the returned JSON and translate it into the Fantasy Hub dataset structure.
+3. Use the existing v3 scoring formulas and data-quality safeguards while rebuilding data.
+4. Deploy the newly generated index.html to the same website after successful validation.
+5. Leave the last good deployment live on errors.
+
+The current daily Google Drive AFA_Live.json synchronization does not,
+by itself, update this hosted website.
