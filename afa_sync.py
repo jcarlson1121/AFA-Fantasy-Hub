@@ -79,6 +79,7 @@ def ensure_source(source, old):
     old_player_ids = {p['id'] for p in old['players']}
     incoming_player_ids = {p.get('id') or ('player-'+str(p['pid']) if p.get('pid') is not None else '') for p in players}
     if not old_player_ids.issubset(incoming_player_ids):
+                      print("MISSING PLAYER IDS:", sorted(old_player_ids - incoming_player_ids), flush=True)
         raise RuntimeError(f'{len(old_player_ids - incoming_player_ids)} previously published players missing; refusing destructive update')
     if len(complete) < len(old['games']):
         raise RuntimeError(f'Completed game count would decrease ({len(old["games"])} -> {len(complete)}); leaving website unchanged')
